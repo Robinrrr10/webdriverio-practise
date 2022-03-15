@@ -1,0 +1,27 @@
+{
+  "name": "webdriverio-practise",
+  "version": "1.0.0",
+  "description": "project for practicing webdriverio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rpii/wdio-html-reporter": "^7.7.1",
+    "@wdio/allure-reporter": "^7.17.3",
+    "@wdio/local-runner": "^7.17.4",
+    "@wdio/mocha-framework": "^7.17.3",
+    "@wdio/spec-reporter": "^7.17.3",
+    "chai": "^4.3.6",
+    "chai-webdriverio": "^1.0.0",
+    "chromedriver": "^99.0.0",
+    "local-runner": "^0.1.1-alpha",
+    "wdio-chromedriver-service": "^7.3.0",
+    "webdriverio": "^7.17.4"
+  },
+  "dependencies": {
+    "@wdio/cli": "^7.17.4"
+  }
+}

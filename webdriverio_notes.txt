@@ -1,0 +1,147 @@
+WebdriverIO
+-----------
+-----------
+----------
+
+Playlist link: https://www.youtube.com/watch?v=7J3FnyEGXd4&list=PLFGoYjJG_fqqswF8qDdWNG3b-BtZfiqQn
+
+
+Tutorial 1: What is WebDriverIO 
+----------------------------------------------------------------------------
+
+Its is custom implementation of seleniums W3C webdriver API.
+Its written in javascript
+packaged into  npm and runs on node js
+It can be used for automating both web application and native mobile application
+It is simple and easy to write
+Project setup is also very easy
+If neeed we can write our own javascript function test
+It can be integrated with appium
+It can run in most of the browser Eg: chrome, edge, firefox, safari, opera, htmlunit, PhantomJS
+It support framework like Jasmine, mocha, cucumber
+It support reporting like allure, jasmine spec reporter, junit xml reporter and cucumber reporter
+It support parallel execution
+In mobile, it support both android and ios
+Support page object pattern
+It can be integrated with CICD
+Retry test logic is available
+
+
+Official website:
+https://webdriver.io/
+
+
+For documentation:
+https://webdriver.io/docs/api
+
+This can help a lot if we stuck some where
+
+
+-----------
+
+Tutorial 2: Installation and setup:
+---------------------------------
+
+Below are required
+1. java   //Should greater than 1.7 or 1.8
+2. node    //node and npm should be available //Give "node -v" or "npm -v" to check the version. If not installed, install that from https://nodejs.org/en/download/
+3. Vistual studio code   //We can use any ide. Here we will use Visual studio code
+
+
+Open vistual studio code
+File -> add folder to workspace   //Add the project folder. If not create, we can create and add
+
+Go under workspace, then go to that folder.
+Right click and open with integrated terminal
+It will open terminal with that folder. 
+Check we are inside the created folder or not
+
+
+
+Then give below command to create/initialize the project
+npm init      //Give all required details for creating the project
+
+After this it will create package.json inside the root of the created folder
+package.json //This is simular to pom.xml in maven project. This will have all details. dependencies etc
+
+Give below command to install webdriverio
+npm install webdriverio --save-dev            //--save-dev will add installing package as dev dependencies in package.json. so that next time when some one just use "init install", dev dependencies will be automatically downloaded
+
+
+Give below command to webdriver cli command
+npm install @wdio/cli
+
+Give below command to add configuration
+ .\node_modules\.bin\wdio config    //  for linux slash will be different, ./node_modules/.bin/wdio confi
+//On my local machine
+//mocha
+//no
+//default, by pressing enter
+//Select other details also
+//For adding service, select chromedriver or selenium standalone driver
+//Give base url of the web
+Then finally install
+
+It will start installing. It will take some time to install above
+
+node_modules has all package installed using npm
+node_modules/@wdio has package installed using above
+
+After installing we can find wdio.conf.js in root of the project. This is the configuration file
+
+
+wdio.conf.js //This file all configuration. We can modify if we wanted to change some config.
+We can uncommand if we wanted to use some which is commanded in the file
+This is one of the important file
+
+
+
+Give below command to install chai
+npm install chai --save-dev     //chai is has assertion like testng. it will assertion
+
+Give below command to install chai-webdriverio
+npm install chai-webdriverio --save-dev     //This will have chai with webdriverio
+
+Give below command to install local runner
+npm install local-runner --save-dev   //This will dependencies will help to run locally
+
+
+Open wdio.conf.js and uncommand beforeTest like below:
+
+     beforeTest: function (test, context) {
+     },
+
+Modify like below:
+
+     beforeTest: function (test, context) {
+
+        const chai = require('chai')
+        const chaiWebdriverio = require('chai-webdriverio').default
+        chai.use(chaiWebdriverio(browser))
+
+        global.assert = chai.assert
+        global.should = chai.should
+        global.expect = chai.expect
+        
+     },
+
+This will add assert, should and expect of chai to use as global variable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------
