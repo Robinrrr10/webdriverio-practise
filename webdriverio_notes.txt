@@ -128,6 +128,147 @@ Modify like below:
 This will add assert, should and expect of chai to use as global variable.
 
 
+-------------
+
+
+Tutorial 3: Write Your First Script | Element APIs | click, sendKeys and getText
+---------------------------------------------------------
+
+Go to
+https://webdriver.io/
+
+click on API.
+There we can find the document.    //this will be in https://webdriver.io/docs/api
+That can help more  //We can click on any option to see how to use  //It will give example / syntax
+
+open wdio.conf.js
+Give base url in baseUrl   //Eg: baseUrl: 'https://www.flipkart.com'
+
+
+in wdio.conf.js, it will have specs like below
+specs: [
+        './test/specs/**/*.js'
+    ]
+
+//Here it will have the path of test file
+If we wanted to add test in other folder, we need to add
+We can modify this
+
+I have created new folder tutorialtests under test and modified like below. We can add any folder to have test files and just give path here
+specs: [
+        './test/tutorialtests/**/*.js'
+    ]
+
+
+
+Open package.json, under script modify test in scripts as like below. 
+
+"scripts": {
+    "test": "node_modules/.bin/wdio ./wdio.conf.js"             //This will execute to command "node_modules/.bin/wdio ./wdio.conf.js" when we run "npm run test"
+  }
+
+
+//We can add more scripts here.
+
+
+Create new test file firsttest.js under folder tutorialtests
+ 
+describe('Amazon test suite', function(){                                 //describe is simular to suite
+    it('Add text in search box', function(){                    //it is simular to test
+        browser.url('/')                                        //This will launch the browser with given url in baseUrl in wdio.conf.js
+        const searchField = $('form.nav-searchbar.nav-progressive-attribute>div.nav-fill')             //this is get the element and store element in variable //Only the css selector is supported
+        searchField.setValue('Iphone watch')                   //setValue('') is to type text. simular type
+    })
+})
+
+
+
+To run the test give below command:
+npm run test                          //This  will launch the browser and run the test
+
+
+When running the  test it will take time to launch the browser.
+It is because, first it should start seleniumn standalone server, then it should run.
+To run faster, download selenium standalone server in another terminal or in environment variable.
+Then start the test
+
+To download, go to below
+https://www.selenium.dev/download/
+Then download stable version of selenium gri
+Use below command to start the standalone server. Then we use npm run test to run faster
+java -jar "selenium-server-4.1.2.jar" --ext example.jar;dir standalone --port 1234
+
+If above one not worked, then use below
+java -jar selenium-server-4.1.2.jar --port 4545
+
+then run npm run test
+
+
+
+Example: 
+
+describe('Amazon test suite', function(){
+    it('Add text in search box', function(){
+        browser.url('/')
+        const searchField = $("form.nav-searchbar.nav-progressive-attribute>div.nav-fill");
+        searchField.click()
+        searchField.setValue('Iphone watch')
+        browser.pause(3000)             //This is to pause for given millisec
+    })
+
+    it('Verify text', function(){
+        browser.url('/')
+        const endText = $('span.navFooterBackToTopText')
+        let value = endText.getText()         //This is to get the text available in element
+        console.log(value);
+    })
+
+})
+
+
+We can create multiple test files and write multiple test.
+If its in multiple file. those will run in parallel
+
+
+
+IMPORTANT:
+Use below to support sync 
+npm install --save-dev @wdio/sync
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+Downb selenium-server file using below steps
+Go to 
+https://www.selenium.dev/downloads/
+
+
+
+
+
+
+
+
 
 
 

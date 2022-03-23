@@ -21,7 +21,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/tutorialtests/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -94,7 +94,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://www.flipkart.com/',
+    baseUrl: 'https://www.amazon.in',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -132,7 +132,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {outputDir: 'allure-results'}],'html'],
+    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
 
 
     
