@@ -238,6 +238,59 @@ npm install --save-dev @wdio/sync
 
 
 
+------
+
+
+Tutorial 4: Page Objects in WebdriverIO & Create WebElement in Page Class:
+--------------------------------------------------------------------------
+Create class for each page and maintaining elements of those pages.
+
+
+Eg:
+Create folder name pages under root of the project
+Then create class for each page
+Add method which will give elements of each element in the page.
+
+Example:
+class HomePage {
+    get bigText(){
+        return $('h1.h0-80')
+    }
+
+    get subText(){
+        return $('div.small-banner>p.sub-text')
+    }
+
+    get support(){
+        return $("//a[text()='Support']")
+    }
+
+}
+
+module.exports = new HomePage()       //This important to export and to make it public
+
+
+For test refer homepagetest in root of the project
+
+ 
+
+
+
+
+
+single $ will return one element
+doube $$ will return multiple elements
+
+
+----
+
+
+
+
+
+
+
+
 
 
 
