@@ -286,6 +286,15 @@ doube $$ will return multiple elements
 
 
 
+Tutorial 5: findElements or $$ in WebDriverIO
+----------------------------------------------
+
+$$           //$$ is returning multiple elements
+
+
+
+
+
 
 
 
